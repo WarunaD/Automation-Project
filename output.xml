@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140620 15:33:12.800" generator="Robot 2.8.2 (Python 2.7.4 on linux2)">
+<suite source="/home/krishantha/app-demo/app-demo.txt" id="s1" name="App-Demo">
+<test id="s1-t1" name="Test1">
+<kw type="kw" name="resources.Login to AppFactory">
+<doc></doc>
+<arguments>
+</arguments>
+<kw type="kw" name="Open Browser ${LOGIN URL} ${BROWSER}">
+<doc></doc>
+<arguments>
+</arguments>
+<msg timestamp="20140620 15:33:12.890" level="FAIL">No keyword with name 'Open Browser ${LOGIN URL} ${BROWSER}' found.</msg>
+<status status="FAIL" endtime="20140620 15:33:12.890" starttime="20140620 15:33:12.890"></status>
+</kw>
+<status status="FAIL" endtime="20140620 15:33:12.890" starttime="20140620 15:33:12.889"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140620 15:33:12.890" critical="yes" starttime="20140620 15:33:12.889">No keyword with name 'Open Browser ${LOGIN URL} ${BROWSER}' found.</status>
+</test>
+<doc>A test suite with a single test for valid login.
+
+This test has a workflow that is created using keywords in
+the imported resource file.</doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140620 15:33:12.891" starttime="20140620 15:33:12.800"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="App-Demo">App-Demo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

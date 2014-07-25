@@ -1,0 +1,120 @@
+*** Settings ***
+Library           Selenium2Library
+Variables         variables.py
+
+*** Variables ***
+${BROWSER}        Firefox
+${DELAY}          0
+${LOGIN URL}      https://appfactory.private.wso2.com:9443/appmgt/
+
+*** Keywords ***
+Load AppFactory
+    Open Browser    ${LOGIN URL}    ${BROWSER}
+    Maximize Browser Window
+    Set Selenium Speed    ${DELAY}
+    Set Selenium Timeout    10
+    Capture Page Screenshot
+    Page Should Contain    Revolutionizing App Delivery
+
+Login To AppFactory
+    [Arguments]    ${username}    ${password}
+    Input Text    ${username_id}    ${username}
+    Input Text    ${password_id}    ${password}
+
+Submit
+    Sleep    3s
+    Click Element    xpath=//*[@id="loginForm"]/div[3]/button
+    Sleep    5s
+
+Import Team members
+    [Arguments]    ${users}    ${password1}    ${Password2}
+    Click Element    xpath=//span[@class='icon-group']
+    Click Element    xpath=//*[@id="btnAddMembers"]
+    Input Text    ${User_List}    ${users}
+    Input Text    ${PWD1}    ${password1}
+    Input Text    ${PWD2}    ${Password2}
+    Click Element    xpath=/html/body/div/div/article/section/div/div/form/fieldset/div[4]/button
+
+Back to User Home
+    Sleep    3s
+    Click Element    xpath=/html/body/header/h2/a
+    Sleep    3s
+
+Create new Application
+    [Arguments]    ${appname}    ${applicationType}
+    Wait for New App Creation
+    Input New Application Name    ${appname}
+    Input New Application Key    ${appname}Key
+    Click Element    xpath=/html/body/div/div/article/section[2]/div/form/fieldset/div[4]/div/a/div/b
+    Input Text    xpath=/html/body/div[3]/div/input    ${applicationType}
+    Input Description    TestDescription
+    Input Application Type    ${applicationType}
+    List WebApps    ${appname}
+
+Wait for New App Creation
+    Click Element    xpath=/html/body/div/div/article/header/div/a
+    Sleep    3s
+    Wait Until Page Contains    Add New Application
+
+Input New Application Name
+    [Arguments]    ${appname}
+    Wait Until Page Contains Element    applicationName
+    Input Text    applicationName    ${appname}
+
+Input New Application Key
+    [Arguments]    ${APPKEY}
+    Input Text    applicationKey    ${APPKEY}
+
+Input Application Type
+    [Arguments]    ${applicationType}
+    Click Element    xpath=//*[@id="s2id_applicationType"]
+    Click Element    xpath=//div[@class='select2-result-label']
+    Click Element    appcreation
+
+Input Icon
+    [Arguments]    ${ICON}
+    Input Text    icon    ${ICON}
+
+Input Description
+    [Arguments]    ${DESC}
+    Input Text    applicationDescription    ${DESC}
+
+List WebApps
+    [Arguments]    ${appname}
+    Sleep    2s
+    Click Element    xpath=//a[@class='icon-th-list table_view']
+    Wait Until Page Contains    ${appname}
+
+Select App
+    [Arguments]    ${SelectApplication}
+    Sleep    2s
+    Click Element    ${SelectApplication}
+
+Build Deploy & Test App
+    Sleep    2s
+    Click Element    xpath=/html/body/div/div/nav/ul/li[3]/a/span
+    Sleep    2s
+    Click Element    xpath=//a[contains(.,'Build')]
+    Sleep    2s
+    Click Element    xpath=//div[@class='icon-boxer']
+    Sleep    2s
+    Click Element    xpath=//span[@class='icon-globe']
+    Sleep    2s
+    Click Element    xpath=//a[contains(.,'Deploy')]
+    Sleep    2s
+    Click Element    xpath=//a[contains(.,'Launch')]
+    Sleep    2s
+
+Create Personal Copy of the Master Repository
+    Sleep    2s
+    Click Element    xpath=/html/body/div/div/nav/ul/li[3]/a/span
+    Sleep    2s
+    Click Element    xpath=//button[contains(.,' Fork Application ')]
+    Sleep    2s
+    Click Element    xpath=//a[contains(.,'Edit Code')]
+    Sleep    2s
+    Click Element    xpath=//a[contains(.,'Build')]
+    Sleep    2s
+
+Modify Application Using the Built-in Editor
+    Back to User Home
