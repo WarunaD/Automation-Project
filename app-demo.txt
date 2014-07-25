@@ -12,7 +12,7 @@ Test1
     Submit
     Import Team members    Waruna,Dimuthu,Manjula,Chamith,Dimithry    123    123
     Back to User Home
-    Create new Application    newap16    java web
-    Select App    xpath=//a[@title='newap15']
+    Create new Application    newap18    java web
+    Select App    xpath=//a[@title='newap17']
     Build Deploy & Test App
     Create Personal Copy of the Master Repository
