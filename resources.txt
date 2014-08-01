@@ -116,5 +116,26 @@ Create Personal Copy of the Master Repository
     Click Element    xpath=//a[contains(.,'Build')]
     Sleep    2s
 
+Create a Branch
+    [Arguments]    ${Version}
+    Sleep    2s
+    Click Element    xpath=//a[@class='js-table-collapse h4-size-fix']
+    Sleep    2s
+    Click Element    xpath=//a[contains(.,'Create Branch')]
+    Sleep    2s
+    Input Text    xpath=//input[@placeholder='Version Number']    ${Version}
+    Click Element    xpath=//input[@value='Create Branch']
+
 Modify Application Using the Built-in Editor
     Back to User Home
+
+Report Issues
+    [Arguments]    ${IssueSummary}    ${IssueDescription}
+    Sleep    4s
+    Click Element    xpath=//span[contains(@class,'icon-tags')]
+    Sleep    4s
+    Click Element    xpath=//a[contains(.,'New Issue')]
+    Sleep    2s
+    Input Text    summary    ${IssueSummary}
+    Input Text    description    ${IssueDescription}
+    Click Element    xpath=//input[@value='Add Issue']
