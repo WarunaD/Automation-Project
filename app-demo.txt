@@ -8,11 +8,12 @@ Resource          resources.txt
 *** Test Cases ***
 Test1
     Load AppFactory
-    Login To AppFactory    admin@testing.com    admin
+    Login To AppFactory    admin@testing1.com    admin
     Submit
-    Import Team members    Waruna,Dimuthu,Manjula,Chamith,Dimithry    123    123
+    Import Team members    Waruna,Dimuthu,Manjula,Chamith,Dmitry    123    123
     Back to User Home
-    Create new Application    newap18    java web
-    Select App    xpath=//a[@title='newap17']
+    Create new Application    newap42    java web
+    Select App    xpath=//a[@title='newap40']
     Build Deploy & Test App
     Create Personal Copy of the Master Repository
+    Create a Branch    1.3.0
